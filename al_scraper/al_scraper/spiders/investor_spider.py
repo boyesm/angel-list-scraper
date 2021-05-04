@@ -5,7 +5,7 @@ class InvestorSpider(scrapy.Spider):
     name = "investor"
 
     def start_requests(self):
-        headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:48.0) Gecko/20100101 Firefox/48.0'}
+        headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:48.0) Gecko/20100101 Firefox/48.0'} # add a basic user-agent header to allow for requests
 
         for i in range(100000, 999999): # https://angel.co/startups/{i} redirects to company pages
             yield scrapy.Request(url=f'https://angel.co/startups/{i}', headers=headers, callback=self.parse)
